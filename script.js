@@ -1,94 +1,142 @@
-const root = document.documentElement;
-const themeBtn = document.getElementById("themeBtn");
+/**
+ * Cybersecurity Defense Portfolio — Secure & Interactive
+ */
 
-themeBtn.addEventListener("click", () => {
-  const light = root.dataset.theme === "light";
-  if (light) {
-    delete root.dataset.theme;
-    themeBtn.textContent = "◐";
-  } else {
-    root.dataset.theme = "light";
-    themeBtn.textContent = "◑";
+// 1. Interactive Particle Network Background
+const canvas = document.getElementById("bgCanvas");
+if (canvas) {
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
-});
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
 
-// Sound Effects (Web Audio API Synthesizer - Cyber SFX)
+  for (let i = 0; i < 45; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      radius: Math.random() * 1.5 + 1
+    });
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgba(0, 255, 102, 0.4)";
+    ctx.strokeStyle = "rgba(0, 255, 102, 0.08)";
+
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+}
+
+// 2. Audio Synthesizer (Optimized for Mobile/Safari Context Locking)
 let sfxEnabled = true;
+let audioCtx = null;
 const sfxBtn = document.getElementById("sfxBtn");
 
-sfxBtn.addEventListener("click", () => {
-  sfxEnabled = !sfxEnabled;
-  sfxBtn.textContent = sfxEnabled ? "🔊" : "🔇";
-});
+if (sfxBtn) {
+  sfxBtn.addEventListener("click", () => {
+    sfxEnabled = !sfxEnabled;
+    sfxBtn.textContent = sfxEnabled ? "🔊" : "🔇";
+  });
+}
 
-function playClickSound() {
+function initAudioContext() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}
+
+window.addEventListener('touchstart', initAudioContext, { once: true });
+window.addEventListener('click', initAudioContext, { once: true });
+
+function playCyberBeep() {
   if (!sfxEnabled) return;
   try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
+    initAudioContext();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(800, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.05);
-    gain.gain.setValueAtTime(0.08, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.04);
+    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(audioCtx.destination);
     osc.start();
-    osc.stop(ctx.currentTime + 0.05);
+    osc.stop(audioCtx.currentTime + 0.04);
   } catch (e) {}
 }
 
 document.querySelectorAll(".sound-btn").forEach(el => {
-  el.addEventListener("click", () => playClickSound());
+  el.addEventListener("click", () => playCyberBeep());
 });
 
-// Subtle 3D cursor tilt for cards and terminal
-document.querySelectorAll("[data-tilt]").forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - .5;
-    const y = (e.clientY - r.top) / r.height - .5;
-    const terminal = card.querySelector(".terminal");
-    if (terminal) {
-      terminal.style.transform = `rotateY(${x * -14 - 8}deg) rotateX(${y * 9 + 5}deg)`;
-    } else {
-      card.style.transform = `translateY(-10px) rotateY(${x * 15}deg) rotateX(${y * -15}deg)`;
-    }
-  });
-  card.addEventListener("mouseleave", () => {
-    const terminal = card.querySelector(".terminal");
-    if (terminal) {
-      terminal.style.transform = "rotateY(-8deg) rotateX(5deg)";
-    } else {
-      card.style.transform = "none";
-    }
-  });
-});
-
-// Lightbox Modal Functionality for Certificates
+// 3. Lightbox Certificate Viewer
 const modal = document.getElementById("lightboxModal");
 const modalImg = document.getElementById("lightboxImg");
 const closeBtn = document.querySelector(".lightbox-close");
 
 document.querySelectorAll(".clickable-img").forEach(img => {
   img.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalImg.src = img.src;
+    if (modal && modalImg) {
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden", "false");
+      modalImg.src = img.src;
+    }
   });
 });
 
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    if (modal) {
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+    }
+  });
+}
 
-modal.addEventListener("click", e => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
+if (modal) {
+  modal.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+    }
+  });
+}
 
-// Scroll reveal
+// 4. Scroll Reveal Observer
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -96,32 +144,18 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-}, {threshold: .12});
+}, { threshold: 0.1 });
+
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// Active navigation
-const sections = [...document.querySelectorAll("main section[id]")];
-const links = [...document.querySelectorAll(".nav-links a")];
-const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id));
-    }
-  });
-}, {rootMargin: "-35% 0px -55% 0px"});
-sections.forEach(s => navObserver.observe(s));
+// 5. Back to Top
+const topBtn = document.getElementById("topBtn");
+if (topBtn) {
+  topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
 
-// Back to top
-document.getElementById("topBtn").addEventListener("click", () =>
-  window.scrollTo({top: 0, behavior: "smooth"})
-);
-
-// Current year
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Keyboard shortcut: press G to return home
-document.addEventListener("keydown", e => {
-  if (e.key.toLowerCase() === "g" && !["INPUT","TEXTAREA"].includes(document.activeElement.tagName)) {
-    location.hash = "home";
-  }
-});
+// 6. Set Current Year Safely
+const yearSpan = document.getElementById("year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
