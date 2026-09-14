@@ -3,42 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Saif Almalki — Cybersecurity CV and professional portfolio">
-  <meta name="theme-color" content="#06070b">
-  <title>Saif Almalki | Cybersecurity CV</title>
+  <meta name="description" content="Saif Almalki — Cybersecurity Specialist Portfolio">
+  <meta name="theme-color" content="#030805">
+  
+  <!-- Security Headers (Anti-Clickjacking / CSP Policy) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+  <title>Saif Almalki | Cybersecurity Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="grid-bg"></div>
-  <div class="orb orb-a"></div>
-  <div class="orb orb-b"></div>
-
+  <!-- Interactive Particle Mesh -->
+  <canvas id="bgCanvas"></canvas>
+  
   <header class="nav-wrap">
-    <nav class="nav glass">
+    <nav class="nav glass-panel">
       <a class="brand sound-btn" href="#home">
-        <span class="brand-mark">SA</span>
-        <span>SAIF<span class="accent">.</span></span>
+        <span class="brand-badge">⚡</span>
+        <span>SAIF<span class="neon-green">.DEFENSE</span></span>
       </a>
       <div class="nav-links">
-        <a href="#about" class="sound-btn">About</a>
-        <a href="#experience" class="sound-btn">Experience</a>
-        <a href="#skills" class="sound-btn">Skills</a>
-        <a href="#projects" class="sound-btn">Projects</a>
-        <a href="#certifications" class="sound-btn">Certifications</a>
-        <a href="#contact" class="sound-btn">Contact</a>
+        <a href="#about" class="sound-btn">ABOUT</a>
+        <a href="#experience" class="sound-btn">TIMELINE</a>
+        <a href="#skills" class="sound-btn">ARSENAL</a>
+        <a href="#projects" class="sound-btn">PROJECTS</a>
+        <a href="#certifications" class="sound-btn">CREDS</a>
+        <a href="#contact" class="sound-btn">CONTACT</a>
       </div>
       <div class="nav-actions">
-        <a href="https://www.linkedin.com/in/saif-almalki-85703231b" target="_blank" rel="noopener noreferrer" class="btn-linkedin-nav sound-btn">
+        <a href="https://www.linkedin.com/in/saif-almalki-85703231b" target="_blank" rel="noopener noreferrer" class="btn-linkedin sound-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.6a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
-          LinkedIn
+          LINKEDIN
         </a>
-        <a href="#contact" class="btn-cv-nav sound-btn" id="downloadCvBtn">Download CV</a>
         <button class="sound-toggle-btn sound-btn" id="sfxBtn" aria-label="Toggle SFX">🔊</button>
-        <button class="theme-btn sound-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
       </div>
     </nav>
   </header>
@@ -46,134 +48,145 @@
   <main id="home">
     <section class="hero section">
       <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="status-dot"></span> CYBERSECURITY • READY FOR OPPORTUNITIES</div>
-        <h1>Saif<br><span class="gradient-text">Almalki.</span></h1>
-        <p class="hero-sub">Cybersecurity Graduate <span>·</span> Network Security Specialist</p>
+        <div class="status-badge"><span class="radar-dot"></span> SYSTEM SECURE // OPERATIONAL</div>
+        <h1 class="hero-title">Saif<br><span class="neon-green">Almalki</span></h1>
+        <p class="hero-sub">CYBERSECURITY GRADUATE <span>🛡️</span> NETWORK DEFENDER</p>
         <p class="hero-desc">
-          Building a strong foundation in network administration, security fundamentals,
-          cloud infrastructure, and practical cybersecurity operations.
+          Defending critical infrastructure, hardening networks, and architecting zero-trust cyber defense systems.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary sound-btn" href="#contact">Let's Connect <span>↗</span></a>
-          <a class="btn btn-ghost sound-btn" href="#projects">View Projects <span>↓</span></a>
+          <a class="btn btn-primary sound-btn" href="#contact">GET IN TOUCH <span>↗</span></a>
+          <a class="btn btn-ghost sound-btn" href="#projects">VIEW PROJECTS <span>↓</span></a>
         </div>
         <div class="quick-contact">
           <a href="tel:+966593678628" class="sound-btn">+966 59 367 8628</a>
-          <span></span>
+          <span class="dot"></span>
           <a href="mailto:sa9629068@gmail.com" class="sound-btn">sa9629068@gmail.com</a>
-          <span></span>
-          <a href="https://www.linkedin.com/in/saif-almalki-85703231b" target="_blank" rel="noopener noreferrer" class="sound-btn accent">linkedin.com/in/saif-almalki</a>
+          <span class="dot"></span>
+          <a href="https://www.linkedin.com/in/saif-almalki-85703231b" target="_blank" rel="noopener noreferrer" class="sound-btn neon-green">linkedin.com/in/saif-almalki</a>
         </div>
       </div>
 
-      <div class="hero-visual reveal tilt-card" data-tilt>
-        <div class="holo-ring ring-1"></div>
-        <div class="holo-ring ring-2"></div>
-        <div class="holo-ring ring-3"></div>
-        <div class="terminal glass sound-btn">
-          <div class="terminal-top"><i></i><i></i><i></i><span>security://profile</span></div>
+      <div class="hero-visual reveal" data-tilt>
+        <div class="cyber-terminal glass-panel">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">sec_ops_console.sh</span>
+          </div>
           <div class="terminal-body">
-            <p><b class="cyan">root@saif</b><span>:</span><b class="purple">~</b><span>$</span> whoami</p>
-            <p class="muted">cybersecurity_student</p>
-            <p><b class="cyan">root@saif</b><span>:</span><b class="purple">~</b><span>$</span> focus</p>
-            <p class="green">network_security / cloud / automation</p>
-            <p><b class="cyan">root@saif</b><span>:</span><b class="purple">~</b><span>$</span> status</p>
-            <p class="status-line"><span class="pulse"></span> available for opportunities</p>
-            <span class="cursor"></span>
+            <p><span class="prompt">$</span> <span class="cmd">whoami</span></p>
+            <p class="res">Saif Almalki — Cybersecurity Specialist</p>
+            <p><span class="prompt">$</span> <span class="cmd">cat degree.info</span></p>
+            <p class="res">B.S. Cybersecurity [GPA: 3.75 / 4.00]</p>
+            <p><span class="prompt">$</span> <span class="cmd">check --certs</span></p>
+            <p class="res neon-green">[✓] CompTIA Security+ SY0-701</p>
+            <p class="res neon-green">[✓] ISC2 Certified in Cybersecurity</p>
+            <p class="res neon-green">[✓] Oracle Cloud Infrastructure (OCI)</p>
+            <p><span class="prompt">$</span> <span class="cmd">status</span></p>
+            <p class="res pulse-text">> READY FOR DEPLOYMENT</p>
           </div>
         </div>
-        <div class="floating-card card-one glass"><span>CC</span><b>ISC2</b><small>Certified in Cybersecurity</small></div>
-        <div class="floating-card card-two glass"><span>+</span><b>Security+</b><small>CompTIA</small></div>
-        <div class="depth-label">SECURE<br><span>THE FUTURE</span></div>
       </div>
     </section>
 
     <section id="about" class="section two-col">
       <div class="section-title reveal">
-        <span class="section-number">01</span>
-        <h2>Professional<br><span class="gradient-text">Summary</span></h2>
+        <span class="sec-num">01</span>
+        <h2>EXECUTIVE<br><span class="neon-green">SUMMARY</span></h2>
       </div>
-      <div class="content-card glass reveal">
+      <div class="content-card glass-panel reveal">
         <p class="lead">
-          Cybersecurity graduate with a <strong>Bachelor's degree in Cybersecurity</strong>
-          from Umm Al-Qura University (GPA: 3.75/4.00) and an
-          <strong>Associate Diploma in Information Security</strong> from the University of Prince Mugrin.
+          Cybersecurity Specialist holding a <strong>Bachelor's degree in Cybersecurity</strong> from Umm Al-Qura University (GPA: 3.75/4.00) and an <strong>Associate Diploma in Information Security</strong> from University of Prince Mugrin.
         </p>
         <p>
-          Solid foundation in network administration, security fundamentals, and cloud infrastructure,
-          backed by industry certifications including ISC2 CC, CompTIA Security+, and Oracle OCI.
-          Proven leadership, teamwork, and communication skills developed through academic, professional,
-          and volunteer organizations.
+          Armed with high-calibre tactical expertise in network administration, threat modeling, and cloud defense mechanisms. Validated by industry certifications from ISC2, CompTIA, and Oracle.
         </p>
         <div class="stat-row">
-          <div><strong>3.75</strong><span>GPA / 4.00</span></div>
-          <div><strong>4+</strong><span>Certifications</span></div>
-          <div><strong>40h</strong><span>Volunteering</span></div>
+          <div><strong class="neon-green">3.75</strong><span>GPA SCORE</span></div>
+          <div><strong class="neon-green">4+</strong><span>CERTIFICATIONS</span></div>
+          <div><strong class="neon-green">40h</strong><span>VOLUNTEER</span></div>
         </div>
       </div>
     </section>
 
     <section id="experience" class="section">
       <div class="section-title centered reveal">
-        <span class="section-number">02</span>
-        <h2>Leadership &<br><span class="gradient-text">Experience</span></h2>
+        <span class="sec-num">02</span>
+        <h2>CAREER<br><span class="neon-green">TIMELINE</span></h2>
       </div>
       <div class="timeline">
         <article class="timeline-item reveal">
           <span class="year">2026</span>
           <div class="timeline-dot"></div>
-          <div class="timeline-card glass"><h3>Member — Tuwaiq Academy</h3><p>Active member contributing to a technical and learning-focused community.</p></div>
+          <div class="timeline-card glass-panel">
+            <h3>Member — Tuwaiq Academy</h3>
+            <p>Active contributor to technical and cybersecurity communities.</p>
+          </div>
         </article>
+
         <article class="timeline-item reveal">
           <span class="year">2025</span>
           <div class="timeline-dot"></div>
-          <div class="timeline-card glass"><h3>Member — Computer Club Organizing Committee</h3><p>Supported event organization, planning, teamwork, and community engagement activities.</p></div>
+          <div class="timeline-card glass-panel">
+            <h3>Member — Computer Club Committee</h3>
+            <p>Commanded tech events, team organizing, and community operations.</p>
+            
+            <!-- النشاط الفرعي المدمج بتصميم أصغر -->
+            <div class="sub-timeline-card">
+              <span class="sub-badge">VOLUNTEER ROLE</span>
+              <h4>Umm Al-Qura Ceremony</h4>
+              <p>Delivered 40 service hours in high-scale event management.</p>
+            </div>
+          </div>
         </article>
+
         <article class="timeline-item reveal">
           <span class="year">2024</span>
           <div class="timeline-dot"></div>
-          <div class="timeline-card glass"><h3>Member — Saudi Council of Engineers</h3><p>Professional membership supporting engineering and technical development.</p></div>
+          <div class="timeline-card glass-panel">
+            <h3>Member — Saudi Council of Engineers</h3>
+            <p>Engineered technical & professional growth competencies.</p>
+          </div>
         </article>
+
         <article class="timeline-item reveal">
           <span class="year">2022</span>
           <div class="timeline-dot"></div>
-          <div class="timeline-card glass"><h3>Member — Mawhiba Association</h3><p>Participant in the National Olympiad for Scientific Creativity.</p></div>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="year">40h</span>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card glass"><h3>Volunteer — Umm Al-Qura University Graduation Ceremony</h3><p>Completed 40 hours of volunteer service and event support.</p></div>
+          <div class="timeline-card glass-panel">
+            <h3>Member — Mawhiba Association</h3>
+            <p>Competitor in National Olympiad for Scientific Creativity.</p>
+          </div>
         </article>
       </div>
     </section>
 
     <section id="skills" class="section">
       <div class="section-title reveal">
-        <span class="section-number">03</span>
-        <h2>Technical<br><span class="gradient-text">Arsenal</span></h2>
+        <span class="sec-num">03</span>
+        <h2>TECHNICAL<br><span class="neon-green">ARSENAL</span></h2>
       </div>
       <div class="skills-grid">
-        <div class="skill-panel glass reveal">
-          <div class="panel-head"><span class="icon">⌘</span><h3>Hard Skills</h3></div>
+        <div class="skill-panel glass-panel reveal">
+          <h3>CORE COMPETENCIES</h3>
           <div class="skill-list">
-            <div class="skill"><span>Security Principles & Risk Management</span><b>90%</b><i style="--w:90%"></i></div>
-            <div class="skill"><span>Threat & Vulnerability Management</span><b>86%</b><i style="--w:86%"></i></div>
-            <div class="skill"><span>Network Fundamentals & IP Connectivity</span><b>92%</b><i style="--w:92%"></i></div>
-            <div class="skill"><span>Network Security & Access Control</span><b>88%</b><i style="--w:88%"></i></div>
-            <div class="skill"><span>Cloud Infrastructure & Networking</span><b>82%</b><i style="--w:82%"></i></div>
+            <div class="skill"><span>Security & Risk Management</span><b>90%</b><i style="--w:90%"></i></div>
+            <div class="skill"><span>Threat & Vulnerability Defense</span><b>86%</b><i style="--w:86%"></i></div>
+            <div class="skill"><span>Network Hardening & IP Routing</span><b>92%</b><i style="--w:92%"></i></div>
+            <div class="skill"><span>Network Access Controls (ACLs)</span><b>88%</b><i style="--w:88%"></i></div>
+            <div class="skill"><span>Cloud Infrastructure (Oracle OCI)</span><b>82%</b><i style="--w:82%"></i></div>
             <div class="skill"><span>Identity & Access Management (IAM)</span><b>80%</b><i style="--w:80%"></i></div>
-            <div class="skill"><span>Automation & Programmability</span><b>76%</b><i style="--w:76%"></i></div>
           </div>
         </div>
-        <div class="skill-panel glass reveal">
-          <div class="panel-head"><span class="icon">✦</span><h3>Soft Skills & Tools</h3></div>
-          <div class="chips soft-chips">
-            <span>Leadership</span><span>Emotional Intelligence</span><span>Teamwork</span>
-            <span>Communication</span><span>Motivating Teams</span><span>Event Planning</span>
+        <div class="skill-panel glass-panel reveal">
+          <h3>TOOLS & PLATFORMS</h3>
+          <div class="chips tool-chips">
+            <span>Nmap</span><span>Wireshark</span><span>Burp Suite</span><span>Metasploit</span><span>Kali Linux</span><span>Cisco Packet Tracer</span>
           </div>
-          <div class="tools-header" style="margin-top:20px;font-size:11px;color:var(--cyan);font-weight:700;letter-spacing:.1em">CORE SECURITY TOOLS</div>
-          <div class="chips tool-chips" style="margin-top:10px">
-            <span>Nmap</span><span>Wireshark</span><span>Burp Suite</span><span>Metasploit</span><span>Linux (Kali/Ubuntu)</span><span>Cisco Packet Tracer</span>
+          <h3 style="margin-top: 25px;">SOFT SKILLS</h3>
+          <div class="chips soft-chips">
+            <span>Leadership</span><span>Emotional Intelligence</span><span>Teamwork</span><span>Event Planning</span>
           </div>
         </div>
       </div>
@@ -181,122 +194,90 @@
 
     <section id="projects" class="section">
       <div class="section-title centered reveal">
-        <span class="section-number">04</span>
-        <h2>Projects &<br><span class="gradient-text">Practical Labs</span></h2>
+        <span class="sec-num">04</span>
+        <h2>FEATURED<br><span class="neon-green">PROJECTS</span></h2>
       </div>
       <div class="projects-grid">
-        <article class="project-card glass reveal">
-          <div class="project-tag">Network Security</div>
-          <h3>Enterprise Network Hardening & ACLs</h3>
-          <p>Configured secure routing protocols, implemented access control lists (ACLs), and secured device management planes in simulated enterprise topologies using Cisco Packet Tracer.</p>
-          <div class="project-stack"><span>Cisco IOS</span><span>Packet Tracer</span><span>Routing Protocols</span></div>
+        <article class="project-card glass-panel reveal">
+          <div class="project-tag">CYBER HARDENING</div>
+          <h3>Enterprise Network Hardening</h3>
+          <p>Engineered secure routing protocols, implemented access control lists (ACLs), and fortified device management planes in Cisco Packet Tracer topologies.</p>
+          <div class="project-stack"><span>Cisco IOS</span><span>Packet Tracer</span><span>Routing</span></div>
         </article>
-        <article class="project-card glass reveal">
-          <div class="project-tag">Vulnerability Assessment</div>
-          <h3>Automated Port Scanner & Recon Script</h3>
-          <p>Developed Python-based scripts utilizing socket programming and multi-threading to perform active host discovery and basic port vulnerability enumeration.</p>
-          <div class="project-stack"><span>Python</span><span>Socket API</span><span>Network Recon</span></div>
+        <article class="project-card glass-panel reveal">
+          <div class="project-tag">RECONNAISSANCE</div>
+          <h3>Automated Port Scanner</h3>
+          <p>Built Python multi-threaded scripts using socket APIs to execute host discovery and vulnerability enumeration.</p>
+          <div class="project-stack"><span>Python</span><span>Sockets</span><span>Recon</span></div>
         </article>
-        <article class="project-card glass reveal">
-          <div class="project-tag">Traffic Analysis</div>
-          <h3>Wireshark Packet Analysis Labs</h3>
-          <p>Analyzed captured pcap files to identify malicious handshakes, cleartext credential transmissions, and anomalous traffic patterns during simulated attacks.</p>
-          <div class="project-stack"><span>Wireshark</span><span>PCAP Analysis</span><span>TCP/IP</span></div>
+        <article class="project-card glass-panel reveal">
+          <div class="project-tag">DEEP INSPECTION</div>
+          <h3>Wireshark Packet Analysis</h3>
+          <p>Intercepted and inspected PCAP traffic files to expose anomalous handshakes and cleartext credential leakage.</p>
+          <div class="project-stack"><span>Wireshark</span><span>PCAP</span><span>TCP/IP</span></div>
         </article>
       </div>
     </section>
 
     <section id="certifications" class="section">
       <div class="section-title centered reveal">
-        <span class="section-number">05</span>
-        <h2>Certifications &<br><span class="gradient-text">Training</span></h2>
+        <span class="sec-num">05</span>
+        <h2>VERIFIED<br><span class="neon-green">CREDENTIALS</span></h2>
       </div>
       <div class="cert-grid">
-        <article class="cert-card glass reveal" data-tilt>
-          <span class="cert-year">2026</span>
-          <div class="cert-logo">+</div>
+        <article class="cert-card glass-panel reveal" data-tilt>
           <h3>CompTIA Security+</h3>
-          <p>CompTIA</p>
-          <div class="cert-img-container">
-            <img src="photo_2026-09-11_01-15-22.jpg" alt="CompTIA Security+ Certificate" class="cert-img clickable-img sound-btn">
-          </div>
+          <p>CompTIA • 2026</p>
+          <img src="photo_2026-09-11_01-15-22.jpg" alt="CompTIA Security+" class="cert-img clickable-img sound-btn">
         </article>
-        <article class="cert-card glass reveal" data-tilt>
-          <span class="cert-year">2027</span>
-          <div class="cert-logo">CC</div>
-          <h3>Cisco Certified Network Associate (CCNA)</h3>
-          <p>Cisco</p>
+        <article class="cert-card glass-panel reveal" data-tilt>
+          <h3>Cisco CCNA</h3>
+          <p>Cisco • 2027</p>
         </article>
-        <article class="cert-card glass reveal" data-tilt>
-          <span class="cert-year">2025</span>
-          <div class="cert-logo">CC</div>
+        <article class="cert-card glass-panel reveal" data-tilt>
           <h3>ISC2 Certified in Cybersecurity</h3>
-          <p>ISC2</p>
-          <div class="cert-img-container">
-            <img src="photo_2026-09-11_01-15-28.jpg" alt="ISC2 Certified in Cybersecurity" class="cert-img clickable-img sound-btn">
-          </div>
+          <p>ISC2 • 2025</p>
+          <img src="photo_2026-09-11_01-15-28.jpg" alt="ISC2 CC" class="cert-img clickable-img sound-btn">
         </article>
-        <article class="cert-card glass reveal" data-tilt>
-          <span class="cert-year">2025</span>
-          <div class="cert-logo">OCI</div>
-          <h3>Oracle Cloud Infrastructure Foundations Associate</h3>
-          <p>Oracle</p>
-          <div class="cert-img-container">
-            <img src="photo_2026-09-11_01-15-32.jpg" alt="Oracle Cloud Infrastructure Foundations Associate" class="cert-img clickable-img sound-btn">
-          </div>
+        <article class="cert-card glass-panel reveal" data-tilt>
+          <h3>Oracle OCI Foundations</h3>
+          <p>Oracle • 2025</p>
+          <img src="photo_2026-09-11_01-15-32.jpg" alt="Oracle OCI" class="cert-img clickable-img sound-btn">
         </article>
-      </div>
-      <div class="training glass reveal">
-        <h3>Courses & Training</h3>
-        <div class="training-list">
-          <span>Saudi Aramco Summer Enrichment Program <b>2022</b></span>
-          <span>Mawhiba Academic Enrichment Program <b>2022</b></span>
-          <span>Introduction to Cybersecurity — Cisco Networking Academy <b>2025</b></span>
-          <span>Network Fundamentals — Cisco Networking Academy <b>2025</b></span>
-          <span>Java 103 <b>2025</b></span>
-          <span>Inspiring and Motivating Individuals <b>2025</b></span>
-          <span>Emotional Intelligence <b>2025</b></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section education">
-      <div class="edu-card glass reveal">
-        <span class="section-number">06</span>
-        <h2>Education</h2>
-        <div class="edu-item"><div><span>Cybersecurity</span><h3>Bachelor of Science in Cybersecurity</h3><p>Umm Al-Qura University</p></div><strong>3.75 / 4.00</strong></div>
-        <div class="edu-item"><div><span>Information Security</span><h3>Associate Diploma in Information Security</h3><p>University of Prince Mugrin (UPM)</p></div><strong>Diploma</strong></div>
       </div>
     </section>
 
     <section id="contact" class="section contact-section">
-      <div class="contact-glow"></div>
       <div class="contact-inner reveal">
-        <span class="section-number">07</span>
-        <h2>Let's build a<br><span class="gradient-text">secure future.</span></h2>
-        <p>Open to entry-level cybersecurity opportunities, technical roles, and meaningful professional collaboration.</p>
+        <span class="sec-num">06</span>
+        <h2>ESTABLISH<br><span class="neon-green">COMMUNICATION</span></h2>
+        <p>Available for cybersecurity engineering, SOC analysis, and network defense operations.</p>
         <div class="contact-cards">
-          <a class="contact-card glass sound-btn" href="mailto:sa9629068@gmail.com"><small>EMAIL</small><b>sa9629068@gmail.com</b><span>↗</span></a>
-          <a class="contact-card glass sound-btn" href="tel:+966593678628"><small>PHONE</small><b>+966 59 367 8628</b><span>↗</span></a>
-          <a class="contact-card glass sound-btn linkedin-card" href="https://www.linkedin.com/in/saif-almalki-85703231b" target="_blank" rel="noopener noreferrer">
-            <small>LINKEDIN PROFILE</small>
+          <a class="contact-card glass-panel sound-btn" href="mailto:sa9629068@gmail.com">
+            <small>EMAIL</small>
+            <b>sa9629068@gmail.com</b>
+          </a>
+          <a class="contact-card glass-panel sound-btn" href="tel:+966593678628">
+            <small>PHONE</small>
+            <b>+966 59 367 8628</b>
+          </a>
+          <a class="contact-card glass-panel sound-btn" href="https://www.linkedin.com/in/saif-almalki-85703231b" target="_blank" rel="noopener noreferrer">
+            <small>LINKEDIN</small>
             <b>saif-almalki</b>
-            <span>↗</span>
           </a>
         </div>
       </div>
     </section>
   </main>
 
-  <div id="lightboxModal" class="lightbox">
+  <div id="lightboxModal" class="lightbox" role="dialog" aria-hidden="true">
     <span class="lightbox-close sound-btn">&times;</span>
     <img class="lightbox-content" id="lightboxImg" alt="Enlarged Certificate">
   </div>
 
   <footer>
-    <span>© <span id="year"></span> Saif Almalki</span>
-    <span>Cybersecurity • Network Security</span>
-    <button id="topBtn" class="sound-btn">Back to top ↑</button>
+    <span>© <span id="year"></span> SAIF ALMALKI — ALL RIGHTS RESERVED</span>
+    <button id="topBtn" class="sound-btn">BACK TO TOP ↑</button>
   </footer>
 
   <script src="script.js"></script>
